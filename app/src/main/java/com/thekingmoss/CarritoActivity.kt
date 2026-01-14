@@ -2,6 +2,7 @@ package com.thekingmoss
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -30,6 +31,11 @@ class CarritoActivity : AppCompatActivity() {
     private lateinit var adapter: CarritoAdapter
     private lateinit var viewModel: CarritoViewModel
 
+    private lateinit var tvCarritoVacio: TextView
+
+    private lateinit var layoutTotal: View
+
+
     private val usuarioId = 3L // luego lo sacas del login
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +54,8 @@ class CarritoActivity : AppCompatActivity() {
         rvCarrito = findViewById(R.id.rvCarrito)
         tvTotal = findViewById(R.id.tvTotal)
         btnComprar = findViewById(R.id.btnComprar)
+        tvCarritoVacio = findViewById(R.id.tvCarritoVacio)
+        layoutTotal = findViewById(R.id.layoutTotal)
 
         adapter = CarritoAdapter(
             arrayListOf(),
@@ -84,10 +92,28 @@ class CarritoActivity : AppCompatActivity() {
             .get(CarritoViewModel::class.java)
 
         // 🔥 OBSERVADOR (ESTO FALTABA)
-        viewModel.carrito.observe(this) { lista ->
+        /*viewModel.carrito.observe(this) { lista ->
             adapter.actualizarLista(ArrayList(lista))
             calcularTotal(lista)
+        }*/
+
+        viewModel.carrito.observe(this) { lista ->
+
+            adapter.actualizarLista(ArrayList(lista))
+            calcularTotal(lista)
+
+            if (lista.isEmpty()) {
+                tvCarritoVacio.visibility = View.VISIBLE
+                rvCarrito.visibility = View.GONE
+                layoutTotal.visibility = View.GONE
+            } else {
+                tvCarritoVacio.visibility = View.GONE
+                rvCarrito.visibility = View.VISIBLE
+                layoutTotal.visibility = View.VISIBLE
+            }
         }
+
+
     }
 
     private fun cargarCarrito() {
@@ -95,9 +121,15 @@ class CarritoActivity : AppCompatActivity() {
     }
 
     private fun calcularTotal(lista: List<CarritoItem>) {
+        if (lista.isEmpty()) {
+            tvTotal.text = "Total: S/ 0.00"
+            return
+        }
+
         val total = lista.sumOf { it.precio * it.cantidad }
         tvTotal.text = "Total: S/ %.2f".format(total)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
