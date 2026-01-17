@@ -1,5 +1,6 @@
 package com.thekingmoss
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -66,6 +67,16 @@ class CarritoActivity : AppCompatActivity() {
 
         rvCarrito.layoutManager = LinearLayoutManager(this)
         rvCarrito.adapter = adapter
+
+        btnComprar.setOnClickListener {
+            val total = viewModel.carrito.value
+                ?.sumOf { it.precio * it.cantidad } ?: 0.0
+
+            val intent = Intent(this, CheckoutActivity::class.java)
+            intent.putExtra("total", total)
+            startActivity(intent)
+        }
+
 
         setupViewModel()
         cargarCarrito()
@@ -141,7 +152,7 @@ class CarritoActivity : AppCompatActivity() {
         return prefs.getString("token", "") ?: ""*/
 
         // por mientras para hacer pruebas poner token manualmente hasta que este culminado el login
-        return "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIiLCJpYXQiOjE3NjgzNTkxMzAsImV4cCI6MTc2ODM5NTEzMH0.MMFBrtOwrCjqDXH5jz6urTeIRUz5uQ8xXfqZnUMOVw8"
+        return "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIiLCJpYXQiOjE3Njg2MTM2NDgsImV4cCI6MTc2ODY0OTY0OH0.ZAdKBrbS6Dj0KOLNOSms2fYlha6_bGQJyUZSFQktrAs"
     }
 
 }
