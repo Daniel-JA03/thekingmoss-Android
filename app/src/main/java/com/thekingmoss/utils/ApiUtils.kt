@@ -1,7 +1,7 @@
 package com.thekingmoss.utils
 
 import com.thekingmoss.services.ApiServiceCarrito
-import com.thekingmoss.services.ApiServiceLogin
+import com.thekingmoss.services.ApiServicePedido
 
 class ApiUtils {
     companion object {
@@ -16,6 +16,12 @@ class ApiUtils {
             return RetrofitClient
                 .getClient(BASE_URL, token)
                 .create(ApiServiceCarrito::class.java)
+        }
+        //No lo borren porfaaaaaaaaaaaa
+        fun pedidoService(token: String): ApiServicePedido {
+            return RetrofitClient
+                .getClient(BASE_URL, token)
+                .create(ApiServicePedido::class.java)
         }
     }
 }
