@@ -7,6 +7,11 @@ class ApiUtils {
     companion object {
         val BASE_URL = "http://192.168.100.16:8080"
 
+        fun authService(): ApiServiceLogin {
+            return RetrofitClient.getClient(BASE_URL)
+                .create(ApiServiceLogin::class.java)
+        }
+
         fun carritoService(token: String): ApiServiceCarrito {
             return RetrofitClient
                 .getClient(BASE_URL, token)

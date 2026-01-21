@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#7C4DFF</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSurface">#FFFFFF</color>         <!-- Fondo de tarjetas -->
+    <color name="colorOnSurface">#1F1F1F</color>       <!-- Texto en tarjetas -->
+
+    <color name="colorBackground">#FAFAFA</color>      <!-- Fondo de toda la pantalla -->
+    <color name="colorOnBackground">#1F1F1F</color>    <!-- Texto sobre fondo blanco -->
+
+    <color name="colorCardStroke">#E0E0E0</color>      <!-- Bordes de las tarjetas -->
+
+    <color name="main_background">#19191b</color>
+    <color name="pink">#e45eb0</color>
+    <color name="green">#34e3c4</color>
+    <color name="btn_primary">#4db8ff</color> <!-- Celeste moderno -->
+    <color name="btn_secundary">#6d6ba8</color>
+
+    <!-- -->
+
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
     <color name="black">#FF000000</color>
     <color name="verde_moss">#2E7D32</color>
     <color name="verde_claro">#A5D6A7</color>
