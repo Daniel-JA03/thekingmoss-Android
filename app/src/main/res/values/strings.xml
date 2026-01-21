@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">thekingmoss-Android</string>
+
+    <!--MAIN ACTIVITY-->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Registro</string>
+
+
+    <!--ACTIVITY REGISTRO-->
+    <string name="CrearCuentaTxt">Crear una cuenta</string>
+    <string name="NombreEt">Nombres</string>
+    <string name="CorreoEt">Correo Electronico</string>
+    <string name="ContraseñaEt">Contraseña</string>
+    <string name="ConfirmarContraseñaEt">Confirmar Contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="TengounacuentaTXT">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="CerrarSesion">Salir</string>
+
+
+    <!--ACTIVITY LOGIN-->
+    <string name="IniciarSesionTXT">Iniciar Sesión</string>
+    <string name="CorreoLogin">Correo electronico</string>
+    <string name="PassLogin">Contraseña</string>
+    <string name="BtnLogeo">Ingresar</string>
+    <string name="UsuarioNuevoTXT">¿No tienes una cuenta?.Registrate</string>
+
 </resources>

@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ThekingmossAndroid" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+        <!-- Colores para modo claro -->
+        <item name="colorPrimary">#6A1B9A</item>           <!-- Púrpura elegante -->
+        <item name="colorOnPrimary">#FFFFFF</item>         <!-- Texto blanco -->
 
+        <item name="colorSurface">#FFFFFF</item>           <!-- Tarjetas -->
+        <item name="colorOnSurface">#212121</item>         <!-- Texto oscuro -->
+
+        <item name="android:colorBackground">#F5F5F5</item> <!-- Fondo general -->
+        <item name="colorOnBackground">#212121</item>      <!-- Texto sobre fondo -->
+    </style>
+    <!-- Tu tema final apunta al base -->
     <style name="Theme.ThekingmossAndroid" parent="Base.Theme.ThekingmossAndroid" />
 </resources>
