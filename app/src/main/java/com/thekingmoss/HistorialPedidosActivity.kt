@@ -18,6 +18,8 @@ class HistorialPedidosActivity : AppCompatActivity() {
     private lateinit var viewModel: PedidoViewModel
     private lateinit var adapter: PedidoAdapter
 
+    private val usuarioId = 3L // pruebas
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,8 +42,9 @@ class HistorialPedidosActivity : AppCompatActivity() {
     }
 
     private fun configurarViewModel() {
-        val token = intent.getStringExtra("token") ?: ""
-        val pedidoService = ApiUtils.pedidoService(token)
+        // val token = intent.getStringExtra("token") ?: ""
+        // val pedidoService = ApiUtils.pedidoService(token)
+        val pedidoService = ApiUtils.pedidoService(getToken())
         val repository = PedidoRepository(pedidoService)
 
         viewModel = ViewModelProvider(
@@ -53,6 +56,11 @@ class HistorialPedidosActivity : AppCompatActivity() {
             adapter.updateData(lista)
         }
 
-        viewModel.cargarPedidos(usuarioId = 1L)
+        viewModel.cargarPedidos(usuarioId = 3L)
+    }
+
+    // para hacer pruebas
+    private fun getToken(): String {
+        return "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIiLCJpYXQiOjE3NjkwNDUxNDMsImV4cCI6MTc2OTA4MTE0M30.W_XKryPKsAHjy7T6LPDkHW-DeoOXwBZ3EfE338Ur4yw"
     }
 }
