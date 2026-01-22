@@ -97,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
                     val user = response.body()!!
                     saveUserSession(user.token, user.usuarioId, user.username, user.email)
                     Toast.makeText(this@LoginActivity, "Bienvenido(a) ${user.username}", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@LoginActivity, MenuPrincipal::class.java))
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
                 } else {
                     val errorMsg = when (response.code()) {

@@ -10,8 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var Btn_Login: Button
-    private lateinit var Btn_Registro: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +20,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Btn_Login = findViewById(R.id.Btn_Login)
-        Btn_Registro = findViewById(R.id.Btn_Registro)
 
-        Btn_Login.setOnClickListener() {
-            startActivity(Intent(this, LoginActivity::class.java))
-
-        }
-        Btn_Registro.setOnClickListener() {
-            startActivity(Intent(this, RegistroActivity::class.java))
-
-        }
     }
 }

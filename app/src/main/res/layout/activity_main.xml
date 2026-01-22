@@ -1,72 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#0A1128">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/gradient_color_backgroud"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="18dp">
+    <!-- 🔝 NAVBAR -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:padding="12dp"
+        app:title=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animacion_carga"
-            android:layout_width="407dp"
-            android:layout_height="443dp"
-            app:layout_constraintBottom_toTopOf="@+id/texto_cargando"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="AnimationMain.json"
-            app:lottie_loop="true" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notoserif"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="30sp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Btn_Login"
+            <!--
+            <ImageView
+                android:src="@drawable/ic_moss"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tint="@android:color/white"/>
+            -->
+            <TextView
+                android:text="TheKingMoss"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!-- CONTENIDO -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/notoserif"
-            android:textColor="@android:color/white"
-            android:text="@string/Btn_Login"
-            android:background="@drawable/btn_login_background"
-            app:backgroundTint="@null"
-            app:rippleColor="@null" />
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Btn_Registro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/notoserif"
-            android:textColor="@android:color/white"
-            android:text="@string/Btn_Registro"
-            android:background="@drawable/btn_background"
-            app:backgroundTint="@null"
-            app:rippleColor="@null" />
+            <!-- 🌿 HERO SECTION -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="520dp">
 
+                <!-- Imagen fondo -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home"/>
 
+                <!-- Overlay -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/hero_overlay"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                <!-- Contenido -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
+                    <TextView
+                        android:text="Bienvenido a TheKingMoss"
+                        android:textColor="@android:color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+                    <TextView
+                        android:text="Compra los mejores musgos decorativos y naturales desde casa."
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <Button
+                        android:id="@+id/btnExplorar"
+                        android:text="Explorar Productos"
+                        android:layout_marginTop="24dp"
+                        android:paddingHorizontal="32dp"
+                        android:paddingVertical="12dp"
+                        android:backgroundTint="#4caf50"
+                        android:textColor="@android:color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ⭐ PRODUCTOS DESTACADOS -->
+            <TextView
+                android:text="Productos Populares"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- FOOTER -->
+            <TextView
+                android:text="© 2026 TheKingMoss"
+                android:textColor="#AAAAAA"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
