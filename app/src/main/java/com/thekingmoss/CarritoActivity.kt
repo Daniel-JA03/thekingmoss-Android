@@ -18,6 +18,7 @@ import com.thekingmoss.adaptador.CarritoAdapter
 import com.thekingmoss.controlador.CarritoViewModel
 import com.thekingmoss.controlador.CarritoViewModelFactory
 import com.thekingmoss.entity.CarritoItem
+import com.thekingmoss.entity.SessionManager
 import com.thekingmoss.repository.CarritoRepository
 import com.thekingmoss.services.ApiServiceCarrito
 import com.thekingmoss.utils.ApiUtils
@@ -37,7 +38,10 @@ class CarritoActivity : AppCompatActivity() {
     private lateinit var layoutTotal: View
 
 
-    private val usuarioId = 3L // luego lo sacas del login
+    // private val usuarioId = 3L // luego lo sacas del login
+
+    private lateinit var session: SessionManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,9 +64,9 @@ class CarritoActivity : AppCompatActivity() {
 
         adapter = CarritoAdapter(
             arrayListOf(),
-            onMas = { item -> viewModel.aumentarCantidad(usuarioId, item) },
-            onMenos = { item -> viewModel.disminuirCantidad(usuarioId, item) },
-            onEliminar = { item -> viewModel.eliminarProducto(usuarioId, item.productoId) }
+            onMas = { item -> viewModel.aumentarCantidad(session.getUserId(), item) },
+            onMenos = { item -> viewModel.disminuirCantidad(session.getUserId(), item) },
+            onEliminar = { item -> viewModel.eliminarProducto(session.getUserId(), item.productoId) }
         )
 
         rvCarrito.layoutManager = LinearLayoutManager(this)
@@ -76,6 +80,15 @@ class CarritoActivity : AppCompatActivity() {
             intent.putExtra("total", total)
             startActivity(intent)
         }
+
+        session = SessionManager(this)
+
+        if (!session.isLoggedIn()) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+
 
 
         setupViewModel()
@@ -128,7 +141,7 @@ class CarritoActivity : AppCompatActivity() {
     }
 
     private fun cargarCarrito() {
-        viewModel.cargarCarrito(usuarioId)
+        viewModel.cargarCarrito(session.getUserId())
     }
 
     private fun calcularTotal(lista: List<CarritoItem>) {
@@ -150,9 +163,7 @@ class CarritoActivity : AppCompatActivity() {
     private fun getToken(): String {
         /*val prefs = getSharedPreferences("auth", MODE_PRIVATE)
         return prefs.getString("token", "") ?: ""*/
-
-        // por mientras para hacer pruebas poner token manualmente hasta que este culminado el login
-        return "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIiLCJpYXQiOjE3Njg2MTM2NDgsImV4cCI6MTc2ODY0OTY0OH0.ZAdKBrbS6Dj0KOLNOSms2fYlha6_bGQJyUZSFQktrAs"
+        return session.getToken()
     }
 
 }
