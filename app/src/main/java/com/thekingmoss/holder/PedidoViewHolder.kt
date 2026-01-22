@@ -9,8 +9,8 @@ import com.thekingmoss.entity.Pedido
 class PedidoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val tvPedidoId: TextView = itemView.findViewById(R.id.tvPedidoId)
-    private val tvFecha: TextView = itemView.findViewById(R.id.tvFecha)
-    private val tvEstado: TextView = itemView.findViewById(R.id.tvEstado)
+    private val tvFecha: TextView = itemView.findViewById(R.id.tvFechaPedido)
+    private val tvEstado: TextView = itemView.findViewById(R.id.tvEstadoPedido)
     private val tvTotal: TextView = itemView.findViewById(R.id.tvTotal)
 
     fun bind(pedido: Pedido, onClick: (Pedido) -> Unit) {

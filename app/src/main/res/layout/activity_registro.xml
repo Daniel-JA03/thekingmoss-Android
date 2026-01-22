@@ -20,7 +20,7 @@
             android:fontFamily="@font/notoserif"
             android:gravity="center"
             android:text="@string/CrearCuentaTxt"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="25sp" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -173,7 +173,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Selecciona un rol:"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -189,14 +189,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vendedor"
-                android:textColor="@color/white"/>
+                android:textColor="@android:color/white"/>
 
             <RadioButton
                 android:id="@+id/rbAdministrador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Administrador"
-                android:textColor="@color/white"/>
+                android:textColor="@android:color/white"/>
         </RadioGroup>
 
         <!-- Botón Registrar -->
@@ -226,7 +226,7 @@
             android:text="@string/TengounacuentaTXT"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textColor="@android:color/white"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -65,18 +65,20 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // se modifico para que permita ingresar con el username y password
     private fun validarDatos() {
-        val emailOrUsername = edtCorreo.text.toString().trim()
+        val username = edtCorreo.text.toString().trim()
         val password = edtContrasena.text.toString().trim()
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(emailOrUsername).matches()) {
-            Toast.makeText(this, "Correo inválido", Toast.LENGTH_SHORT).show()
+        if (TextUtils.isEmpty(username)) {
+            Toast.makeText(this, "Ingrese usuario", Toast.LENGTH_SHORT).show()
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show()
         } else {
-            loginDelUsuario(emailOrUsername, password)
+            loginDelUsuario(username, password)
         }
     }
+
 
     private fun loginDelUsuario(username: String, password: String) {
         progressDialog.show()

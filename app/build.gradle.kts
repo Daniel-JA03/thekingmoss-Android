@@ -48,7 +48,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
     implementation("com.airbnb.android:lottie:6.4.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.itextpdf:itext7-core:7.2.5")
