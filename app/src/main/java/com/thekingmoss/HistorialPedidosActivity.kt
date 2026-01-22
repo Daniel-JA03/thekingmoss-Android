@@ -42,9 +42,9 @@ class HistorialPedidosActivity : AppCompatActivity() {
     }
 
     private fun configurarViewModel() {
-        // val token = intent.getStringExtra("token") ?: ""
-        // val pedidoService = ApiUtils.pedidoService(token)
-        val pedidoService = ApiUtils.pedidoService(getToken())
+        val token = intent.getStringExtra("token") ?: ""
+        val pedidoService = ApiUtils.pedidoService(token)
+        //val pedidoService = ApiUtils.pedidoService(getToken())
         val repository = PedidoRepository(pedidoService)
 
         viewModel = ViewModelProvider(
@@ -60,7 +60,7 @@ class HistorialPedidosActivity : AppCompatActivity() {
     }
 
     // para hacer pruebas
-    private fun getToken(): String {
+    /*private fun getToken(): String {
         return "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoidGVzdHVzZXIiLCJpYXQiOjE3NjkwNDUxNDMsImV4cCI6MTc2OTA4MTE0M30.W_XKryPKsAHjy7T6LPDkHW-DeoOXwBZ3EfE338Ur4yw"
-    }
+    }*/
 }
