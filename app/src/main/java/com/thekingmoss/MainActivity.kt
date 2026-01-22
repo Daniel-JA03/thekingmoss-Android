@@ -89,13 +89,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.menu_sobre -> {
-                if (estaLogueado()) {
-                    startActivity(Intent(this, SobreNosotrosActivity::class.java))
-                } else {
-                    startActivity(Intent(this, LoginActivity::class.java))
-                }
+                startActivity(Intent(this, SobreNosotrosActivity::class.java))
                 true
             }
+
 
             else -> super.onOptionsItemSelected(item)
         }
