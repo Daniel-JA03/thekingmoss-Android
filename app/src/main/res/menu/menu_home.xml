@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_inicio"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/menu_productos"
+        android:title="Productos" />
+
+    <item
+        android:id="@+id/menu_contacto"
+        android:title="Contacto" />
+
+    <item
+        android:id="@+id/menu_sobre"
+        android:title="Sobre Nosotros" />
+
+    <item
+        android:id="@+id/menu_historial"
+        android:title="Historial" />
+</menu>
