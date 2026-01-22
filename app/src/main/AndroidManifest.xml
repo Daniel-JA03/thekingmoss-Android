@@ -16,11 +16,15 @@
         android:theme="@style/Theme.ThekingmossAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SobreNosotrosActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
             android:exported="true">
+
             <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,16 +63,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".ui.pedido.HistorialPedidosActivity"
             android:exported="true">
@@ -81,7 +81,6 @@
                 </intent-filter>
             -->
         </activity>
-
     </application>
 
 </manifest>
