@@ -117,9 +117,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveUserSession(token: String, userId: Long, username: String, email: String) {
-        val prefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        val prefs = getSharedPreferences("session", MODE_PRIVATE)
         with(prefs.edit()) {
-            putString("auth_token", token)
+            putString("token", token)
             putLong("user_id", userId)
             putString("username", username)
             putString("email", email)
