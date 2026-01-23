@@ -45,15 +45,18 @@
         android:layout_marginTop="8dp">
 
         <Button
+            android:id="@+id/btnVerProducto"
             android:text="Ver producto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <Button
+            android:id="@+id/btnAgregar"
             android:text="Añadir"
             android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </LinearLayout>
