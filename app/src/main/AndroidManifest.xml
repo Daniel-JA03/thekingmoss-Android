@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ThekingmossAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProductoActivity"
+            android:exported="false" />
+        <activity
             android:name=".SobreNosotrosActivity"
             android:exported="false" />
         <activity

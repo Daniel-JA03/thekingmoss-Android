@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap
+            android:src="@drawable/nosotros"
+            android:scaleType="centerCrop"/>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#AA0A1128"
+                android:endColor="#CC0A1128"
+                android:angle="90"/>
+        </shape>
+    </item>
+</layer-list>
