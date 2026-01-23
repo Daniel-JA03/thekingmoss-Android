@@ -93,6 +93,11 @@ class MainActivity : AppCompatActivity() {
                 true
             }
 
+            R.id.menu_productos -> {
+                startActivity(Intent(this, ProductoActivity::class.java))
+                true
+            }
+
 
             else -> super.onOptionsItemSelected(item)
         }

@@ -3,14 +3,12 @@ package com.thekingmoss.mapper
 import com.thekingmoss.dto.producto.ProductoResponseDto
 import com.thekingmoss.entity.ProductoItem
 
-fun ProductoResponseDto.toProductoItem(): ProductoItem {
+fun ProductoResponseDto.toProductoItem(imagenUrl: String? = null): ProductoItem {
     return ProductoItem(
-        id = idProducto,
+        productoId = idProducto,
         nombre = nombreProducto,
-        precio = precioUnitario,
-        descuento = descuento,
-        stock = stock,
         descripcion = descripcion,
-        categoria = nombreCategoria
+        precio = precioUnitario,
+        imagenUrl = "http://localhost:8080/imagesProducts/$imagenUrl"
     )
 }

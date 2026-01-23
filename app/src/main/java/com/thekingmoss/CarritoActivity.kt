@@ -38,8 +38,6 @@ class CarritoActivity : AppCompatActivity() {
     private lateinit var layoutTotal: View
 
 
-    // private val usuarioId = 3L // luego lo sacas del login
-
     private lateinit var session: SessionManager
 
 

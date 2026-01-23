@@ -2,10 +2,16 @@ package com.thekingmoss.repository
 
 import com.thekingmoss.dto.producto.ProductoRequestDto
 import com.thekingmoss.services.ApiServiceProducto
+import com.thekingmoss.services.ApiServiceProductoImagen
 
-class ProductoRepository(private val service: ApiServiceProducto) {
+class ProductoRepository(
+    private val service: ApiServiceProducto,
+    private val productoImagenService: ApiServiceProductoImagen
+) {
     fun listarProductos() =
         service.fetchProductos()
+
+    fun listarImagenes() = productoImagenService.fetchProductoImagenes()
 
     fun buscarProductoPorId(id: Long) =
         service.fetchProductoById(id)
