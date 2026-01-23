@@ -32,6 +32,37 @@
             app:lottie_fileName="registro.json"
             app:lottie_loop="true" />
 
+        <!-- Campo: Username -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Nombre de usuario"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/UsernameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <!-- Campo: Nombre -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -44,23 +75,82 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:startIconDrawable="@drawable/baseline_person_24"
-
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeWidth="2dp"
             app:boxStrokeColor="@color/input_outline"
-
             app:hintTextColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/white"
             android:textColorHint="@android:color/white"
-            app:boxStrokeWidthFocused="2dp"
-            android:textColor="@android:color/white">
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NombreEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo: Apellido -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Apellido"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ApellidoEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo: Teléfono -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Teléfono"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_phone_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TelefonoEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
@@ -78,11 +168,9 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:startIconDrawable="@drawable/baseline_email_24"
-
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeWidth="2dp"
             app:boxStrokeColor="@color/input_outline"
-
             app:hintTextColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/white"
@@ -112,11 +200,9 @@
             app:boxCornerRadiusTopStart="12dp"
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/baseline_lock_24px"
-
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeWidth="2dp"
             app:boxStrokeColor="@color/input_outline"
-
             app:hintTextColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/white"
@@ -146,11 +232,9 @@
             app:boxCornerRadiusTopStart="12dp"
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/baseline_lock_24px"
-
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeWidth="2dp"
             app:boxStrokeColor="@color/input_outline"
-
             app:hintTextColor="@android:color/white"
             app:startIconTint="@android:color/white"
             app:endIconTint="@android:color/white"
@@ -167,49 +251,17 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Campo: Rol con RadioButtons -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Selecciona un rol:"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupRoles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rbVendedor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vendedor"
-                android:textColor="@android:color/white"/>
-
-            <RadioButton
-                android:id="@+id/rbAdministrador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Administrador"
-                android:textColor="@android:color/white"/>
-        </RadioGroup>
-
         <!-- Botón Registrar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/RegistrarUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="24dp"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:fontFamily="@font/notoserif"
             android:textColor="@android:color/white"
-            android:text="@string/Btn_Login"
+            android:text="Registrar"
             android:background="@drawable/btn_login_background"
             app:backgroundTint="@null"
             app:rippleColor="@null" />

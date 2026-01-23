@@ -13,6 +13,7 @@ interface ApiServiceLogin {
 
     fun login(@Body request: LoginRequestDto): Call<LoginResponseDto>
 
-
+    @POST("/api/auth/register")
+    fun register(@Body request: RegistrarRequestDto): Call<Map<String, String>>
 
 }
