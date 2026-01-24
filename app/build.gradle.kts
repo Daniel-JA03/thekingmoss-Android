@@ -52,6 +52,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.itextpdf:itext7-core:7.2.5")
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Retrofit
     implementation(libs.retrofit)
