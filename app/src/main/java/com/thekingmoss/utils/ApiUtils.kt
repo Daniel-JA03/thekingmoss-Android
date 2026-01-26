@@ -1,6 +1,7 @@
 package com.thekingmoss.utils
 
 import com.thekingmoss.services.ApiServiceCarrito
+import com.thekingmoss.services.ApiServiceContacto
 import com.thekingmoss.services.ApiServiceLogin
 import com.thekingmoss.services.ApiServicePedido
 import com.thekingmoss.services.ApiServiceProducto
@@ -10,6 +11,10 @@ class ApiUtils {
     companion object {
         val BASE_URL = "http://192.168.100.16:8080"
 
+        fun contactoService(): ApiServiceContacto {
+            return RetrofitClient.getClient(BASE_URL)
+                .create(ApiServiceContacto::class.java)
+        }
         fun authService(): ApiServiceLogin {
             return RetrofitClient.getClient(BASE_URL)
                 .create(ApiServiceLogin::class.java)

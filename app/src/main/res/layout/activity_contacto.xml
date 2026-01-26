@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_color_backgroud"
+    tools:context=".ContactoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notoserif"
+            android:gravity="center"
+            android:text="Contáctanos"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animacion_contacto"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="contacto.json"
+            app:lottie_loop="true" />
+
+        <!-- Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="Nombre completo"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_person_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombreContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Correo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Correo electrónico"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_email_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmailContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Asunto (opcional) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Asunto (opcional)"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/baseline_subject_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAsuntoContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mensaje -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Mensaje"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:startIconDrawable="@drawable/outline_eye_tracking_24"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etMensajeContacto"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón Enviar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnviarContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_login_background"
+            android:fontFamily="@font/notoserif"
+            android:text="Enviar mensaje"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:rippleColor="@null" />
+
+    </LinearLayout>
+
+</ScrollView>
