@@ -9,13 +9,20 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.thekingmoss.adaptador.ProductoAdapter
+import com.thekingmoss.controlador.CarritoViewModel
+import com.thekingmoss.controlador.CarritoViewModelFactory
 import com.thekingmoss.controlador.ProductoViewModel
+import com.thekingmoss.entity.SessionManager
+import com.thekingmoss.repository.CarritoRepository
 import com.thekingmoss.repository.ProductoRepository
+import com.thekingmoss.services.ApiServiceCarrito
 import com.thekingmoss.utils.ApiUtils
+import com.thekingmoss.utils.RetrofitClient
 
 class ProductoActivity : AppCompatActivity() {
 
@@ -23,8 +30,16 @@ class ProductoActivity : AppCompatActivity() {
     private lateinit var adapter: ProductoAdapter
     private lateinit var viewModel: ProductoViewModel
 
+    private lateinit var carritoViewModel: CarritoViewModel
+    private lateinit var session: SessionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        session = SessionManager(this)
+        carritoViewModel = provideCarritoViewModel(this, session.getToken())
+
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_producto)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -44,9 +59,19 @@ class ProductoActivity : AppCompatActivity() {
                 startActivity(intent)
             },
             onAgregar = { producto ->
-                Toast.makeText(this, "Añadido: ${producto.nombre}", Toast.LENGTH_SHORT).show()
-                // 👉 aquí llamas al CarritoViewModel
+                carritoViewModel.agregarProducto(
+                    session.getUserId(),
+                    producto,
+                    1 // cantidad por defecto desde la lista
+                )
+
+                Toast.makeText(
+                    this,
+                    "Añadido: ${producto.nombre}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+
         )
 
         rvProductos.adapter = adapter
@@ -71,4 +96,23 @@ class ProductoActivity : AppCompatActivity() {
 
         viewModel.cargarProductos()
     }
+
+    private fun provideCarritoViewModel(
+        owner: ViewModelStoreOwner,
+        token: String
+    ): CarritoViewModel {
+
+        val retrofit = RetrofitClient.getClient(
+            ApiUtils.BASE_URL,
+            token
+        )
+
+        val service = retrofit.create(ApiServiceCarrito::class.java)
+        val repository = CarritoRepository(service)
+        val factory = CarritoViewModelFactory(repository)
+
+        return ViewModelProvider(owner, factory)
+            .get(CarritoViewModel::class.java)
+    }
+
 }

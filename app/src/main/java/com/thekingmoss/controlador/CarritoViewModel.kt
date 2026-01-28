@@ -3,9 +3,11 @@ package com.thekingmoss.controlador
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.thekingmoss.dto.carrito.CarritoRequestDto
 import com.thekingmoss.dto.carrito.CarritoResponseDto
 import com.thekingmoss.entity.CarritoItem
+import com.thekingmoss.entity.ProductoItem
 import com.thekingmoss.mapper.toCarritoItem
 import com.thekingmoss.repository.CarritoRepository
 import retrofit2.Call
@@ -15,6 +17,7 @@ import retrofit2.Response
 class CarritoViewModel(
     private val repository: CarritoRepository
 ) : ViewModel() {
+
 
     val carrito = MutableLiveData<List<CarritoItem>>()
 
@@ -78,6 +81,31 @@ class CarritoViewModel(
                 }
             })
     }
+
+    fun agregarProducto(usuarioId: Long, producto: ProductoItem, cantidad: Int) {
+        val request = CarritoRequestDto(
+            productoId = producto.productoId,
+            cantidad = cantidad
+        )
+
+        repository.agregarProducto(usuarioId, request)
+            .enqueue(object : Callback<CarritoResponseDto> {
+                override fun onResponse(
+                    call: Call<CarritoResponseDto>,
+                    response: Response<CarritoResponseDto>
+                ) {
+                    if (response.isSuccessful) {
+                        cargarCarrito(usuarioId)
+                    }
+                }
+
+                override fun onFailure(call: Call<CarritoResponseDto>, t: Throwable) {
+                    Log.e("Carrito", "Error agregar producto", t)
+                }
+            })
+    }
+
+
 
     // Callback reutilizable
     private fun simpleCallback(usuarioId: Long) =
