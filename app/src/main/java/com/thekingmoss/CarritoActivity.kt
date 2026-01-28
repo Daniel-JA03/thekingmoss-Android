@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -94,13 +95,6 @@ class CarritoActivity : AppCompatActivity() {
     }
 
     private fun setupViewModel() {
-        /*viewModel = ViewModelProvider(this)[CarritoViewModel::class.java]
-
-        viewModel.carrito.observe(this) { lista ->
-            adapter.actualizarLista(ArrayList(lista))
-            calcularTotal(lista)
-        }*/
-
         val retrofit = RetrofitClient.getClient(
             ApiUtils.BASE_URL,
             getToken()
