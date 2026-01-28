@@ -1,5 +1,6 @@
 package com.thekingmoss
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.thekingmoss.adaptador.ProductoAdapter
 import com.thekingmoss.controlador.ProductoViewModel
@@ -32,13 +34,14 @@ class ProductoActivity : AppCompatActivity() {
         }
 
         rvProductos = findViewById(R.id.rvProductos)
-        rvProductos.layoutManager = GridLayoutManager(this, 2)
+        rvProductos.layoutManager = LinearLayoutManager(this)
 
         adapter = ProductoAdapter(
             arrayListOf(),
             onVer = { producto ->
-                Toast.makeText(this, producto.nombre, Toast.LENGTH_SHORT).show()
-                // 👉 aquí luego abres DetalleProductoActivity
+                val intent = Intent(this, DetalleProductoActivity::class.java)
+                intent.putExtra("producto", producto)
+                startActivity(intent)
             },
             onAgregar = { producto ->
                 Toast.makeText(this, "Añadido: ${producto.nombre}", Toast.LENGTH_SHORT).show()
