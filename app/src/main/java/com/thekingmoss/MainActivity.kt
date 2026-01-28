@@ -11,9 +11,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.thekingmoss.adaptador.ProductoAdapter
+import com.thekingmoss.controlador.ProductoViewModel
+import com.thekingmoss.repository.ProductoRepository
 import com.thekingmoss.ui.pedido.HistorialPedidosActivity
+import com.thekingmoss.utils.ApiUtils
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var rvProductos: RecyclerView
+    private lateinit var adapter: ProductoAdapter
+    private lateinit var viewModel: ProductoViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +41,56 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // 🔥 ESTO FALTABA
+        rvProductos = findViewById(R.id.rvProductos)
+        rvProductos.layoutManager = LinearLayoutManager(this)
+
+        findViewById<Button>(R.id.btnExplorar).setOnClickListener {
+            startActivity(Intent(this, ProductoActivity::class.java))
+        }
+
+        adapter = ProductoAdapter(
+            arrayListOf(),
+            onVer = { producto ->
+                val intent = Intent(this, DetalleProductoActivity::class.java)
+                intent.putExtra("producto", producto)
+                startActivity(intent)
+            },
+            onAgregar = {
+                Toast.makeText(
+                    this,
+                    "Usa la vista de productos para comprar",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        )
+
+        rvProductos.adapter = adapter
+
+
+
+        val repository = ProductoRepository(
+            ApiUtils.productoService(),
+            ApiUtils.productoImagenService()
+        )
+
+        viewModel = ViewModelProvider(
+            this,
+            object : ViewModelProvider.Factory {
+                override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                    return ProductoViewModel(repository) as T
+                }
+            }
+        )[ProductoViewModel::class.java]
+
+
+        viewModel.productos.observe(this) { lista ->
+            val destacados = lista.take(4) // 👈 solo 4 productos
+            adapter.actualizarLista(ArrayList(destacados))
+        }
+
+        viewModel.cargarProductos()
 
 
     }
