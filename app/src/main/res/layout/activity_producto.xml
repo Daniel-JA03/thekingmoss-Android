@@ -94,43 +94,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!-- CONTENEDOR FILTROS + GRID -->
-            <LinearLayout
+            <!-- FILTROS HORIZONTALES -->
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp">
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:scrollbars="none">
 
-                <!-- FILTROS -->
                 <LinearLayout
                     android:id="@+id/layoutFiltros"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:background="#1F2937"
-                    android:padding="16dp">
+                    android:orientation="horizontal">
 
+                    <!-- Ejemplo de chip -->
                     <TextView
-                        android:text="Categorías"
-                        android:textColor="#4CAF50"
-                        android:textSize="18sp"
+                        android:text="Todos"
+                        android:textColor="@android:color/white"
+                        android:background="#4CAF50"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginEnd="8dp"
                         android:textStyle="bold"
-                        android:layout_marginBottom="12dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
-                    <!-- AQUÍ SE AGREGAN CHECKBOX DINÁMICOS -->
+                    <!-- Los demás se agregan dinámicamente -->
                 </LinearLayout>
+            </HorizontalScrollView>
 
-                <!-- GRID -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvProductos"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:paddingStart="16dp"/>
-            </LinearLayout>
+            <!-- GRID PRODUCTOS -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+
 
             <!-- PAGINACIÓN -->
             <LinearLayout

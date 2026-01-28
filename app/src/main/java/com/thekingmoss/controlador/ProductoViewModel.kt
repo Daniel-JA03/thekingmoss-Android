@@ -46,7 +46,6 @@ class ProductoViewModel(
                             productos.value = response.body()?.map {
                                 it.toProductoItem(
                                     imagenMap[it.idProducto]
-                                        ?.replace("localhost", "192.168.100.16")
                                 )
                             }
                         }
