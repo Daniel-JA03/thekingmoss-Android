@@ -135,9 +135,9 @@
                 android:id="@+id/rvProductos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="600dp"
                 android:padding="16dp"
                 android:nestedScrollingEnabled="false"/>
-
             <!-- FOOTER -->
             <TextView
                 android:text="© 2026 TheKingMoss"
