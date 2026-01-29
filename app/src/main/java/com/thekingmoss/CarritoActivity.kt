@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -72,11 +73,18 @@ class CarritoActivity : AppCompatActivity() {
         rvCarrito.adapter = adapter
 
         btnComprar.setOnClickListener {
-            val total = viewModel.carrito.value
-                ?.sumOf { it.precio * it.cantidad } ?: 0.0
+            val carrito = viewModel.carrito.value ?: emptyList()
+
+            if (carrito.isEmpty()) {
+                Toast.makeText(this, "El carrito está vacío", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val total = carrito.sumOf { it.precio * it.cantidad }
 
             val intent = Intent(this, CheckoutActivity::class.java)
             intent.putExtra("total", total)
+            intent.putExtra("carrito", ArrayList(carrito)) // 🔥 ESTO FALTABA
             startActivity(intent)
         }
 
